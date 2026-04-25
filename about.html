@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | About Me</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Ladislav Jíra</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Me</a></li>
+                <li><a href="portfolio.html">Skills & Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="fade-in">
+            <h2>My Background</h2>
+            <p>I am a dedicated student of Computer Science at the Technical University of Liberec, with a strong focus on the dynamic fields of AI, machine learning, programming, and cybersecurity. My academic journey has been driven by a passion for exploring innovative solutions in these domains.</p>
+            <h3>Primary School</h3>
+            <h5>2011-2020</h5>
+            <p>I attended Základní škola Dobiášova in Liberec, where I developed a strong foundation in mathematics and IT. This early education sparked my interest in technology and problem-solving.</p>
+            <h3>Secondary School</h3>
+            <h5>2020-2024</h5>
+            <p>I continued my education at Střední průmyslová škola elektrotechnická in Liberec, where I specialized in computer science and programming. During this time, I participated in various programming competitions and completed internships that provided practical experience in the field.</p>
+            <h3>Technical University of Liberec - Faculty of Mechatronics, Informatics and Interdisciplinary Studies</h3>
+            <h5>2024-Present</h5>
+            <ul>
+                <li><strong>Current Studies:</strong> Pursuing a Bachelor's degree in Computer Science with a focus on cybersecurity and AI.</li>
+                <li><strong>Academic Projects:</strong> Application for practising SQL queries</li>
+                <li><strong>Oracle Academy - Database design and programming with SQL:</strong> Completed coursework on database design and programming with SQL.</li>
+            </ul>
+        </section>
+
+        <section class="fade-in">
+            <h2>My Strengths</h2>
+            <ul>
+                <li><strong>Analytical Thinking:</strong> I excel at breaking down complex problems into manageable components and finding effective solutions.</li>
+                <li><strong>Problem Solving:</strong> I have a strong ability to tackle complex tasks and find creative solutions under pressure.</li>
+                <li><strong>Adaptability:</strong> I can quickly learn new technologies and adapt to changing environments and requirements.</li>
+                <li><strong>Teamwork:</strong> I work well in collaborative environments and enjoy sharing knowledge and ideas with others.</li>
+                <li><strong>Communication:</strong> I have strong communication skills, both written and verbal, which allow me to effectively convey technical concepts to diverse audiences.</li>
+
+            </ul>
+        </section>
+
+        <section class="fade-in">
+            <h2>Beyond the Screen (My Hobbies)</h2>
+            <p><strong>Travelling around Europe and neighboring regions:</strong> I want to visit every single european country and explore their unique cultures. </p>
+            <p><strong>Playing video games:</strong> I enjoy playing a variety of video games, which helps me relax and also inspires creativity in my programming projects.</p>
+            <p><strong>Watching movies and TV shows:</strong> I like to unwind with some entertainment after a long day of coding.</p>
+            <p><strong>Historical reading:</strong> I am interested in learning about different historical periods and events.</p>
+            <p><strong>Geography:</strong> I enjoy learning about different cultures, places around the world, and their histories.</p>
+            <p><strong>Going out with my friends:</strong> I like to socialize and spend time with my peers, going on adventures and exploring new places, going for lunches or coffee.</p>
+            <hr/>
+            <p>...and most importantly...</p>
+            <p><strong>Time with family:</strong> I value spending quality time with my family and creating lasting memories together.</p>
+        </section>
+
+        <section class="photo-section fade-in">
+            <h2>That's Me!!!</h2>
+            <div class="photo-container">
+                <img src="image.jpg" alt="Ladislav Jíra" class="profile-photo">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ladislav Jíra. Created for Professional English Exam.</p>
+    </footer>
+
+</body>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const faders = document.querySelectorAll('.fade-in');
+            
+            const appearOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+</html>

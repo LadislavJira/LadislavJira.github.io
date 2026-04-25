@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Skills & Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Ladislav Jíra</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="portfolio.html" class="active">Skills & Projects</a></li>
+                <li><a href="contact.html" >Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="fade-in">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <p><strong>Programming Languages:</strong> C#, JavaScript, SQL, HTML/CSS</p>
+                <p><strong>Frameworks & Technologies:</strong> .NET (MAUI, Entity Framework, Razor Pages), React</p>
+                <p><strong>Networking & Hardware:</strong> CISCO IT Essentials, Basic Network Security</p>
+                <p><strong>Databases:</strong> Oracle Database Design, SQL Stored Procedures</p>
+                <p><strong>Languages:</strong> Czech C2, English C1, German A1</p>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <h2>Featured Projects & Accomplishments</h2>
+            
+            <article class="project-card">
+                <h3>Cross-Platform & Web Development</h3>
+                <ul>
+                    <li><strong>MAUI Application:</strong> Built a cross-platform mobile application demonstrating modern UI development.</li>
+                    <li><strong>React SPA:</strong>Developed a multi-page frontend application using React.</li>
+                    <li><strong>React Native:</strong> Built a cross-platform mobile application using React Native.</li>
+                    <li><strong>C# Razor Pages Gamebook:</strong> Developed an interactive web-based gamebook application.</li>
+                </ul>
+            </article>
+
+            <article class="project-card" style="margin-top: 20px;">
+                <h3>Database & Backend Projects</h3>
+                <ul>
+                    <li><strong>Maturita Thesis:</strong> Comprehensive comparison of SQL Stored Procedures and Entity Framework performance.</li>
+                    <li><strong>SQL Practice App:</strong> Created an academic application for practicing complex SQL queries.</li>
+                    <li><strong>Entity Framework Gallery:</strong> Developed an image management web application.</li>
+                </ul>
+            </article>
+
+            <article class="project-card" style="margin-top: 20px;">
+                <h3>Academic Research & Certifications</h3>
+                <ul>
+                    <li><strong>Networking CISCO Certificate:</strong> Obtained certification in networking fundamentals.</li>
+                    <li><strong>Oracle Academy:</strong> Completed advanced coursework on database design and SQL.</li>
+                    </ul>
+            </article>
+        </section>
+        <section class="fade-in">
+            <h2>Work Experience</h2>
+            
+            <article class="project-card">
+                <h3>Shift Quality Leader's assistant</h3>
+                <p><strong>Magna Exteriors (Bohemia) s.r.o.</strong> Liberec | 07/2021</p>
+                <ul>
+                    <li>First job experience</li>
+                    <li>Assisted in quality control processes and documentation.</li>
+                    <li>Measuring and recording production metrics.</li>
+                </ul>
+            </article>
+
+            <article class="project-card">
+                <h3>Junior Developer</h3>
+                <p><strong>Skeleton software s.r.o.</strong> Liberec | 05/2022 - Present</p>
+                <ul>
+                    <li>Started as an internship during Secondary School</li>
+                    <li>Currently working as a Junior Developer</li>
+                    <li>Contributing to various software development projects, including web applications and database management.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ladislav Jíra. Created for Professional English Exam.</p>
+    </footer>
+
+</body>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const faders = document.querySelectorAll('.fade-in');
+            
+            const appearOptions = {
+                threshold: 0.15, 
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+</html>

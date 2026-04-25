@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Home</title>
+    <link rel="stylesheet" href="style.css">,
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Ladislav Jíra</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="portfolio.html">Skills & Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero fade-in">
+            <h2>Hello, I'm Ladislav Jíra</h2>
+            <p><strong>Technical University of Liberec Student & Junior Programmer</strong></p>
+            
+            <blockquote class="mission-statement">
+                "As a dedicated student of Computer Science at the Technical University of Liberec, I am passionate about exploring the dynamic fields of AI, machine learning, programming and cybersecurity. My mission is to leverage my technical skills and analytical mindset to contribute to innovative solutions in these domains, while continuously learning and growing as a professional."
+            </blockquote>
+        </section>
+
+        <section class="fade-in">
+            <h2>Welcome to my electronic portfolio</h2>
+            <p>
+                Welcome to my electronic portfolio! I am excited to share my academic journey, professional skills, and personal interests with you. This portfolio serves as a showcase of my growth and achievements in the field of computer science.
+            </p>
+            <hr/>
+            <p>
+                Here, you will find detailed information about my background, strengths, and hobbies in the "About Me" section. Additionally, the "Skills & Projects" section highlights my technical expertise and key projects that demonstrate my capabilities in IT, also if you wish to reach out to me you can via numerous links in the "Contact" section.
+            </p>
+            <hr/>
+            <p>
+                I hope this portfolio provides you with a comprehensive view of who I am as a student and aspiring professional in the tech industry. Thank you for visiting!
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ladislav Jíra. Created for Professional English Exam.</p>
+    </footer>
+
+</body>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const faders = document.querySelectorAll('.fade-in');
+            
+            const appearOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+</html>
