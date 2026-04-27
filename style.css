@@ -1,20 +1,16 @@
-/* --- ÚTULNÉ A OSOBITÉ PORTFOLIO 2026 --- */
-
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;600;800&display=swap');
 
 :root {
-    /* Teplá a emotivní paleta barev */
-    --primary-color: #6366f1;       /* Přívětivá Indigo modrá */
-    --accent-color: #f43f5e;        /* Korálová/Růžová pro emoce a vášeň */
+    --primary-color: #6366f1;
+    --accent-color: #f43f5e;
     --gradient-brand: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     
-    --text-main: #334155;           /* Břidlicově šedá (jemnější pro oči než černá) */
-    --text-muted: #64748b;          /* Tlumená šedá */
-    --bg-color: #faf9f8;            /* Velmi jemná "off-white" pro útulný papírový pocit */
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --bg-color: #faf9f8;
     --surface-color: #ffffff;
     
-    --border-radius: 16px;          /* Kulatější tvary působí přátelštěji */
-    /* "Bouncy" animace - působí živě a hravě, ne roboticky */
+    --border-radius: 16px;
     --transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); 
 }
 
@@ -30,12 +26,10 @@ body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
-    /* Jemný vzor na pozadí dodává hloubku (tečkovaný papír) */
     background-image: radial-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px);
     background-size: 20px 20px;
 }
 
-/* --- HLAVIČKA A NAVIGACE --- */
 header {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(12px);
@@ -51,7 +45,6 @@ header {
 }
 
 header h1 {
-    /* Změna na ručně psaný font pro pocit osobního podpisu */
     font-family: 'Caveat', cursive;
     font-size: 2.4rem;
     background: var(--gradient-brand);
@@ -59,7 +52,7 @@ header h1 {
     -webkit-text-fill-color: transparent;
     font-weight: 700;
     letter-spacing: 1px;
-    transform: rotate(-2deg); /* Mírné natočení podpisu */
+    transform: rotate(-2deg);
     transition: transform 0.3s ease;
 }
 
@@ -83,7 +76,6 @@ nav a {
     padding: 5px 0;
 }
 
-/* Hravější podtržení v navigaci */
 nav a::after {
     content: '';
     position: absolute;
@@ -105,7 +97,6 @@ nav a:hover::after, nav a.active::after {
     width: 100%;
 }
 
-/* --- HLAVNÍ OBSAH --- */
 main {
     padding: 60px 5%;
     max-width: 1000px;
@@ -117,7 +108,6 @@ section {
     background: var(--surface-color);
     padding: 45px;
     border-radius: var(--border-radius);
-    /* Velmi měkký, objemný stín s nádechem do fialova/růžova */
     box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.08);
     margin-bottom: 50px;
     border: 1px solid rgba(255, 255, 255, 0.8);
@@ -132,7 +122,7 @@ h2 {
     gap: 12px;
 }
 
-/* Úprava designové tečky u nadpisů na malý gradientní ovál */
+
 h2::before {
     content: '';
     display: block;
@@ -165,7 +155,6 @@ li {
     margin-bottom: 10px;
 }
 
-/* --- HERO A MISE --- */
 .hero {
     background: transparent;
     box-shadow: none;
@@ -203,7 +192,6 @@ li {
     border: 1px solid rgba(99, 102, 241, 0.1);
 }
 
-/* Stylizované uvozovky pro hloubku a emoce */
 .mission-statement::before {
     content: '"';
     font-family: 'Caveat', cursive;
@@ -215,12 +203,10 @@ li {
     line-height: 1;
 }
 
-/* --- KARTY (PROJEKTY, STRENGTHS) --- */
 .project-card {
     background: var(--surface-color);
     padding: 30px;
     border-radius: var(--border-radius);
-    /* Odstraněna tvrdá levá čára, nahrazena horním gradientem */
     border-top: 4px solid var(--primary-color);
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
     transition: var(--transition); 
@@ -228,7 +214,6 @@ li {
     position: relative;
 }
 
-/* Každá sudá karta má růžový okraj pro barevnou pestrost */
 .project-card:nth-child(even) {
     border-top-color: var(--accent-color);
 }
@@ -239,11 +224,9 @@ li {
 
 .project-card:hover {
     transform: translateY(-8px);
-    /* Zářivější stín při najetí myší */
     box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.15);
 }
 
-/* --- KONÍČKY (IMAGE CARDS) --- */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -273,14 +256,13 @@ li {
 
 .image-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 50px -12px rgba(244, 63, 94, 0.15); /* Růžový glow */
+    box-shadow: 0 25px 50px -12px rgba(244, 63, 94, 0.15); 
 }
 
 .image-card:hover img {
     transform: scale(1.05);
 }
 
-/* --- GALERIE --- */
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -310,7 +292,6 @@ li {
 .gallery-item.wide { grid-column: span 2; }
 .gallery-item.tall { grid-row: span 2; }
 
-/* --- LOGA A OBRÁZKY V PROJEKTECH --- */
 .card-image-bottom {
     margin-top: 25px;
     width: 100%;
@@ -318,7 +299,7 @@ li {
     justify-content: center;
     border-radius: 12px;
     overflow: hidden;
-    background: rgba(99, 102, 241, 0.03); /* Téměř neviditelné podbarvení */
+    background: rgba(99, 102, 241, 0.03); 
     padding: 20px;
 }
 
@@ -334,14 +315,13 @@ li {
 .card-image-bottom img.logo-img {
     box-shadow: none;
     max-height: 100px;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05)); /* Měkčí stín pro loga */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
 }
 
 .project-card:hover .card-image-bottom img {
     transform: scale(1.02);
 }
 
-/* --- PATIČKA --- */
 footer {
     text-align: center;
     padding: 40px 20px;
@@ -351,7 +331,6 @@ footer {
     margin-top: 60px;
 }
 
-/* --- FADE-IN ANIMACE --- */
 .fade-in {
     opacity: 0;
     transform: translateY(40px);
@@ -363,7 +342,6 @@ footer {
     transform: translateY(0);
 }
 
-/* --- MOBILNÍ VERZE --- */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
