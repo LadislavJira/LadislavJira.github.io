@@ -1,14 +1,21 @@
+/* --- ÚTULNÉ A OSOBITÉ PORTFOLIO 2026 --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;600;800&display=swap');
 
 :root {
-    --primary-color: #2563eb;
-    --primary-dark: #1e40af;
-    --accent-color: #0ea5e9;
-    --text-main: #1f2937;
-    --text-muted: #64748b;
-    --bg-color: #f8fafc;
+    /* Teplá a emotivní paleta barev */
+    --primary-color: #6366f1;       /* Přívětivá Indigo modrá */
+    --accent-color: #f43f5e;        /* Korálová/Růžová pro emoce a vášeň */
+    --gradient-brand: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    
+    --text-main: #334155;           /* Břidlicově šedá (jemnější pro oči než černá) */
+    --text-muted: #64748b;          /* Tlumená šedá */
+    --bg-color: #faf9f8;            /* Velmi jemná "off-white" pro útulný papírový pocit */
     --surface-color: #ffffff;
-    --border-radius: 12px;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+    
+    --border-radius: 16px;          /* Kulatější tvary působí přátelštěji */
+    /* "Bouncy" animace - působí živě a hravě, ne roboticky */
+    --transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); 
 }
 
 * {
@@ -23,14 +30,18 @@ body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+    /* Jemný vzor na pozadí dodává hloubku (tečkovaný papír) */
+    background-image: radial-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
+/* --- HLAVIČKA A NAVIGACE --- */
 header {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 1.2rem 5%;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    padding: 1rem 5%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,12 +51,20 @@ header {
 }
 
 header h1 {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    /* Změna na ručně psaný font pro pocit osobního podpisu */
+    font-family: 'Caveat', cursive;
+    font-size: 2.4rem;
+    background: var(--gradient-brand);
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 1.75rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transform: rotate(-2deg); /* Mírné natočení podpisu */
+    transition: transform 0.3s ease;
+}
+
+header h1:hover {
+    transform: rotate(0deg) scale(1.05);
 }
 
 nav ul {
@@ -60,18 +79,22 @@ nav a {
     font-weight: 600;
     font-size: 0.95rem;
     position: relative;
-    transition: var(--transition);
+    transition: color 0.3s ease;
+    padding: 5px 0;
 }
 
+/* Hravější podtržení v navigaci */
 nav a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: var(--primary-color);
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    background: var(--gradient-brand);
     transition: var(--transition);
+    border-radius: 3px;
+    transform: translateX(-50%);
 }
 
 nav a:hover, nav a.active {
@@ -82,6 +105,7 @@ nav a:hover::after, nav a.active::after {
     width: 100%;
 }
 
+/* --- HLAVNÍ OBSAH --- */
 main {
     padding: 60px 5%;
     max-width: 1000px;
@@ -91,71 +115,71 @@ main {
 
 section {
     background: var(--surface-color);
-    padding: 40px;
+    padding: 45px;
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
-    margin-bottom: 40px;
-    border: 1px solid rgba(0,0,0,0.05);
+    /* Velmi měkký, objemný stín s nádechem do fialova/růžova */
+    box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.08);
+    margin-bottom: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 h2 {
     color: var(--text-main);
-    font-size: 1.8rem;
-    margin-bottom: 25px;
+    font-size: 2rem;
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
+/* Úprava designové tečky u nadpisů na malý gradientní ovál */
 h2::before {
     content: '';
     display: block;
-    width: 12px;
-    height: 12px;
-    background: var(--primary-color);
-    border-radius: 50%;
+    width: 8px;
+    height: 24px;
+    background: var(--gradient-brand);
+    border-radius: 4px;
 }
 
 h3 {
-    color: var(--text-main);
-    margin: 20px 0 10px 0;
-    font-size: 1.3rem;
-}
-
-h5 {
     color: var(--primary-color);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.85rem;
-    margin-bottom: 5px;
+    margin: 20px 0 10px 0;
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
 p {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    color: #475569;
+    font-size: 1.05rem;
 }
 
 ul {
     padding-left: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    color: #475569;
 }
 
 li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
+/* --- HERO A MISE --- */
 .hero {
     background: transparent;
     box-shadow: none;
     border: none;
-    text-align: left;
+    text-align: center;
     padding: 40px 0 60px 0;
 }
 
 .hero h2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     letter-spacing: -1px;
+    justify-content: center;
 }
 
 .hero h2::before {
@@ -163,31 +187,50 @@ li {
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     color: var(--text-muted);
 }
 
 .mission-statement {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-style: italic;
     color: var(--text-main);
-    margin-top: 30px;
-    padding: 20px 30px;
-    border-left: 4px solid var(--accent-color);
-    background: rgba(14, 165, 233, 0.05);
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    margin-top: 40px;
+    padding: 35px 40px;
+    background: linear-gradient(to right, rgba(99, 102, 241, 0.05), rgba(244, 63, 94, 0.05));
+    border-radius: var(--border-radius);
+    position: relative;
+    border: 1px solid rgba(99, 102, 241, 0.1);
 }
 
+/* Stylizované uvozovky pro hloubku a emoce */
+.mission-statement::before {
+    content: '"';
+    font-family: 'Caveat', cursive;
+    font-size: 6rem;
+    color: rgba(244, 63, 94, 0.2);
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    line-height: 1;
+}
+
+/* --- KARTY (PROJEKTY, STRENGTHS) --- */
 .project-card {
     background: var(--surface-color);
-    padding: 25px;
+    padding: 30px;
     border-radius: var(--border-radius);
-    border-left: 5px solid var(--primary-color);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    /* Odstraněna tvrdá levá čára, nahrazena horním gradientem */
+    border-top: 4px solid var(--primary-color);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
     transition: var(--transition); 
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     position: relative;
-    overflow: hidden;
+}
+
+/* Každá sudá karta má růžový okraj pro barevnou pestrost */
+.project-card:nth-child(even) {
+    border-top-color: var(--accent-color);
 }
 
 .project-card h3 {
@@ -195,161 +238,49 @@ li {
 }
 
 .project-card:hover {
-    transform: translateY(-5px) scale(1.01);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    border-left-color: var(--accent-color);
+    transform: translateY(-8px);
+    /* Zářivější stín při najetí myší */
+    box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.15);
 }
 
-.photo-section {
-    background: transparent;
-    box-shadow: none;
-    border: none;
-    text-align: center;
-}
-
-.photo-section h2 {
-    justify-content: center;
-}
-
-.photo-section h2::before {
-    display: none;
-}
-
-.profile-photo {
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid var(--surface-color);
-    box-shadow: 0 0 0 4px var(--primary-color), 0 10px 20px rgba(0,0,0,0.15);
-    transition: var(--transition);
-}
-
-.profile-photo:hover {
-    transform: scale(1.05) rotate(2deg);
-}
-
-footer {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: var(--text-main);
-    color: var(--bg-color);
-    font-size: 0.9rem;
-    margin-top: 40px;
-}
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 1rem;
-    }
-    
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .hero h2 {
-        font-size: 2.2rem;
-    }
-
-    main {
-        padding: 30px 5%;
-    }
-
-    section {
-        padding: 25px;
-    }
-}
-
+/* --- KONÍČKY (IMAGE CARDS) --- */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
+    gap: 30px;
+    margin-top: 30px;
 }
 
 .image-card {
     background: var(--surface-color);
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
     transition: var(--transition);
-    border: 1px solid rgba(0,0,0,0.05);
+    border: none;
 }
 
 .image-card img {
     width: 100%;
     height: 220px;
     object-fit: cover;
-    border-bottom: 3px solid var(--primary-color);
     transition: var(--transition);
 }
 
 .image-card-content {
-    padding: 20px;
-}
-
-.image-card-content h3 {
-    margin-top: 0;
-    color: var(--primary-color);
+    padding: 25px;
 }
 
 .image-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 25px -5px rgba(0,0,0,0.1);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px -12px rgba(244, 63, 94, 0.15); /* Růžový glow */
 }
 
 .image-card:hover img {
-    transform: scale(1.03);
-}
-
-
-.hobby-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.hobby-gallery img {
-    width: 100%;
-    height: 120px; 
-    object-fit: cover;
-    border-radius: 6px;
-    transition: var(--transition);
-    cursor: pointer;
-}
-
-.hobby-gallery img:hover {
     transform: scale(1.05);
-    filter: brightness(1.1);
 }
 
-.hobby-gallery img.wide {
-    grid-column: span 2;
-    height: 180px;
-}
-
-.strength-detail {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    margin-top: 5px;
-}
-
+/* --- GALERIE --- */
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -363,105 +294,84 @@ footer {
     height: 100%;
     object-fit: cover;
     border-radius: var(--border-radius);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: var(--transition);
     cursor: pointer;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     z-index: 10;
     position: relative;
 }
 
-.gallery-item.large {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-.gallery-item.wide {
-    grid-column: span 2;
-}
-.gallery-item.tall {
-    grid-row: span 2;
-}
+.gallery-item.large { grid-column: span 2; grid-row: span 2; }
+.gallery-item.wide { grid-column: span 2; }
+.gallery-item.tall { grid-row: span 2; }
 
-.flex-card {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    align-items: flex-start; 
-}
-
-.card-image {
-    flex: 0 0 180px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.card-image img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); 
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-.card-image img.logo-img {
-    box-shadow: none;
-    object-fit: contain;
-    max-height: 100px; 
-}
-
-.flex-card:hover .card-image img {
-    transform: scale(1.03);
-}
-
-.card-content {
-    flex: 1; 
-}
-
-@media (max-width: 768px) {
-    .flex-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .card-image {
-        flex: auto;
-        width: 100%;
-        max-width: 250px;
-        margin-bottom: 15px;
-    }
-}
-
+/* --- LOGA A OBRÁZKY V PROJEKTECH --- */
 .card-image-bottom {
-    margin-top: 20px;
+    margin-top: 25px;
     width: 100%;
     display: flex;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    background: var(--bg-color);
-    padding: 15px;
+    background: rgba(99, 102, 241, 0.03); /* Téměř neviditelné podbarvení */
+    padding: 20px;
 }
 
 .card-image-bottom img {
     max-width: 100%;
     max-height: 350px; 
     object-fit: contain; 
-    border-radius: 6px;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    transition: var(--transition);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
 .card-image-bottom img.logo-img {
     box-shadow: none;
-    max-height: 120px;
+    max-height: 100px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05)); /* Měkčí stín pro loga */
 }
 
 .project-card:hover .card-image-bottom img {
     transform: scale(1.02);
+}
+
+/* --- PATIČKA --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--text-main);
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    margin-top: 60px;
+}
+
+/* --- FADE-IN ANIMACE --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- MOBILNÍ VERZE --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 1.5rem;
+    }
+    nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+    .hero h2 { font-size: 2.5rem; }
+    main { padding: 30px 5%; }
+    section { padding: 30px 20px; }
 }
